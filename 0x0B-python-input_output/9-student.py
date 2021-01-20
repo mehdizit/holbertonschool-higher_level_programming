@@ -1,13 +1,21 @@
 #!/usr/bin/python3
-"""no module"""
+"""Definition of class Student"""
 
 
-class student():
-    """description for student class"""
+class Student:
+    """A student"""
+
     def __init__(self, first_name, last_name, age):
-        """init class"""
-        self.__first_name = first_name
-        self.__last_name = last_name
-        self.__age = age
+        """New Student
+        Args:
+            first_name (str): first name
+            last_name (str): last name
+            age (int): age of student
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
     def to_json(self):
-        return vars(self)
+        """Get a dictionary representation of student"""
+        return self.__dict__
