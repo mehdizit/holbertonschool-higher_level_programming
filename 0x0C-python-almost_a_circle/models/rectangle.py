@@ -78,7 +78,7 @@ class Rectangle(Base):
         """returns string of info about rectangle"""
         return('[Rectangle] ({}) {}/{} - {}/{}'
                .format(self.id, self.x, self.y, self.width, self.height))
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Update the Rectangle."""
         if args and len(args) != 0:
             a = 0
@@ -97,3 +97,9 @@ class Rectangle(Base):
                 elif a == 4:
                     self.y = arg
                 a += 1
+        else:
+            keys = ['id', 'width', 'height', 'x', 'y']
+            if kwargs is not None:
+                for k, v in kwargs.items():
+                    if k in keys:
+                        setattr(self, k, v)
