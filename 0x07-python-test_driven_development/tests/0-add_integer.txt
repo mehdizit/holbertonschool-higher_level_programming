@@ -1,49 +1,73 @@
-# 0-add_integer.txt
 ``add_integer`` module
-=============================
+=====
+
 ``add_integer(...)``` returns the addition of its arguments a and b.
-====================================================================
->>> add_integer = __import__('0-add_integer').add_integer
->>> add_integer(2, 3)
-5
-==========================================================
->>> add_integer(2, -3)
--1
-==========================================================
->>> add_integer(2.0, 3.0)
-5
-==========================================================
->>> add_integer(2.9, 0.2)
-2
-==========================================================
->>> add_integer(-2.9, -0.2)
--2
-==========================================================
->>> add_integer(2.3, -3)
--1
-==========================================================
->>> add_integer(33)
-131
-==========================================================
->>> add_integer("holberton", 3)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/mahdi/holbertonschool-higher_level_programming/0x07-python-test_driven_development/0-add_integer.py", line 5, in add_integer
-    raise TypeError ("a must be an integer")
-TypeError: a must be an integer
-==========================================================
->>> add_integer(2, "holberton")
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/mahdi/holbertonschool-higher_level_programming/0x07-python-test_driven_development/0-add_integer.py", line 7, in add_integer
-    raise TypeError("b must be an integer")
-TypeError: b must be an integer
-===========================================================
->>> add_integer(None)
+
+----------------------------------------------
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(2, 3)
+    5
+
+----------------------------------------------
+
+    >>> add_integer(2, -3)
+    -1
+
+The function also works with floating-point values.
+
+----------------------------------------------
+
+    >>> add_integer(2.0, 3.0)
+    5
+
+Note that floats are casted to ints before addition is performed.
+
+----------------------------------------------
+
+    >>> add_integer(2.9, 0.2)
+    2
+
+----------------------------------------------
+
+    >>> add_integer(-2.9, -0.2)
+    -2
+
+Floating and non-floating point values can be combined.
+
+----------------------------------------------
+
+    >>> add_integer(2.3, -3)
+    -1
+
+The second argument is optional - by default, it is 98.
+
+----------------------------------------------
+
+    >>> add_integer(2)
+    100
+
+----------------------------------------------
+
+    >>> add_integer("hello", 3)
     Traceback (most recent call last):
     TypeError: a must be an integer
-===========================================================
- >>> add_integer(2.3, None)
+
+----------------------------------------------
+
+    >>> add_integer(2, "hello")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+----------------------------------------------
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+----------------------------------------------
+
+    >>> add_integer(2.3, None)
     Traceback (most recent call last):
     TypeError: b must be an integer
 
@@ -84,4 +108,3 @@ And again with NaN numbers.
     >>> add_integer(2, float('nan'))
     Traceback (most recent call last):
     ValueError: cannot convert float NaN to integer
-
