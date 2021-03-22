@@ -1,4 +1,5 @@
 #!/usr/bin/node
+
 const cStatement = 'C is fun';
 const pStatement = 'Python is cool';
 const jStatement = 'Javascript is amazing';
