@@ -1,18 +1,30 @@
 #!/usr/bin/python3
 """lists all states from database hbtn_0e_0_usa"""
+import sys
+import MySQLdb
+
+
+def main(argv):
+
+    if len(argv) - 1 != 3:
+        print("Must enter 3 arguments")
+        return
+
+    db = MySQLdb.connect(host="localhost",
+                         user=argv[1],
+                         passwd=argv[2],
+                         db=argv[3],
+                         port=3306)
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+
+    for row in cur.fetchall():
+        print(row)
+
+    db.close()
 
 
 if __name__ == "__main__":
-    
+
     import sys
-    import MySQLdb
-
-    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
-                         passwd=argv[2], db=argv[3],
-                         port=3306)
-    cursor = db.cursor()
-    cursor.execute("SELECT FROM states ORDER BY id ASC")
-
-    for row in cursor.fetchall():
-        print(row)
-    db.close()
+    main(sys.argv)
